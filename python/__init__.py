@@ -1,1 +1,1 @@
-from . import tk_3de4
+from . import tk_3dequalizer

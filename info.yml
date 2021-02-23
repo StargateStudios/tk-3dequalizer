@@ -7,12 +7,11 @@ configuration:
 requires_shotgun_fields:
         
 # More verbose description of this item 
-display_name: "Shotgun Engine for 3DEqualizer4"
-description: "Shotgun Integration in 3DEqualizer4"
+display_name: "Shotgun Engine for 3DEqualizer"
+description: "Shotgun Integration in 3DEqualizer"
 
 # Required minimum versions for this item to run
 requires_shotgun_version:
 requires_core_version: "v0.18.8"
 
 frameworks:
-
