@@ -1,9 +1,9 @@
 import os
-import sys
 import subprocess
 
 import sgtk
-from sgtk.platform import SoftwareLauncher, SoftwareVersion, LaunchInformation
+from sgtk.platform import SoftwareLauncher, LaunchInformation
+
 
 class TDE4Launcher(SoftwareLauncher):
     """
@@ -39,4 +39,3 @@ class TDE4Launcher(SoftwareLauncher):
             args += " {}".format(subprocess.list2cmdline(("-open", file_to_open)))
 
         return LaunchInformation(exec_path, args, required_env)
-
