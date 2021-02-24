@@ -1,9 +1,9 @@
 import os
-import sys
 import subprocess
 
 import sgtk
-from sgtk.platform import SoftwareLauncher, SoftwareVersion, LaunchInformation
+from sgtk.platform import SoftwareLauncher, LaunchInformation
+
 
 
 class TDE4Launcher(SoftwareLauncher):

@@ -2,12 +2,8 @@
 A 3dequalizer engine for Tank.
 
 """
-
-import sys
-import traceback
-import re
-import time
 import os
+import re
 import logging
 import shutil
 import tempfile
@@ -17,6 +13,8 @@ import tde4
 import sgtk
 from sgtk.platform import Engine
 
+HEARTBEAT_INTERVAL_MS = 50
+
 
 class TDEqualizerEngine(Engine):
     def __init__(self, *args, **kwargs):
@@ -24,7 +22,7 @@ class TDEqualizerEngine(Engine):
         self._custom_scripts_dir_path = None
         Engine.__init__(self, *args, **kwargs)
 
-    def _tde_timer(self):
+    def _heartbeat(self):
         from sgtk.platform.qt import QtCore, QtGui
         # Keep Qt alive
         QtCore.QCoreApplication.processEvents()
@@ -48,7 +46,8 @@ class TDEqualizerEngine(Engine):
             self._qt_app = QtGui.QApplication([])
             self._initialize_dark_look_and_feel()
             tde4.setTimerCallbackFunction(
-                "sgtk.platform.current_engine()._tde_timer", 50
+                "sgtk.platform.current_engine()._heartbeat",
+                HEARTBEAT_INTERVAL_MS,
             )
 
     def post_app_init(self):
